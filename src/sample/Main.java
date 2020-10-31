@@ -19,8 +19,7 @@ public class Main extends Application {
     public static int width = 600;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-
+    public void start(Stage primaryStage) throws Exception {
 
         Parent login = FXMLLoader.load(getClass().getResource("login.fxml"));
 
@@ -28,17 +27,13 @@ public class Main extends Application {
 
         primaryStage.setTitle("JEE Management System");
 
-
-
-
         primaryStage.setScene(scene);
 
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds(); // getting displayInfo
 
-        //  setting position of window at center
-        primaryStage.setX((screenBounds.getMaxX()-this.height)/2);
-        primaryStage.setY((screenBounds.getMaxY()-this.width)/2);
-
+        // setting position of window at center
+        primaryStage.setX((screenBounds.getMaxX() - this.height) / 2);
+        primaryStage.setY((screenBounds.getMaxY() - this.width) / 2);
 
         primaryStage.show();
     }
@@ -47,11 +42,11 @@ public class Main extends Application {
         Connection conn = databaseConnection.connect();
         Statement stmt = conn.createStatement();
 
-        //  making students table if it does not exist
+        // making students table if it does not exist
         String sql = "CREATE TABLE IF NOT EXISTS students (rollnumber INTEGER PRIMARY KEY AUTOINCREMENT, password VARCHAR(25) NOT NULL , studentName TEXT NOT NULL, fName TEXT NOT NULL, mName TEXT NOT NULL, sex TEXT NOT NULL, category TEXT NOT NULL, dobD INTEGER NOT NULL, dobM TEXT NOT NULL, dobY INTEGER NOT NULL);";
         stmt.execute(sql);
 
-        //  making marks table if does not exist
+        // making marks table if does not exist
         sql = "CREATE TABLE IF NOT EXISTS marks (rollnumber INTEGER NOT NULL, maths INTEGER DEFAULT 0 CHECK ( maths<=360 ), physics INTEGER DEFAULT 0 CHECK ( physics<=360 ), chemistry INTEGER DEFAULT 0 CHECK ( chemistry<=360 ),FOREIGN KEY (rollnumber) REFERENCES students(rollnumber));";
         stmt.execute(sql);
 
