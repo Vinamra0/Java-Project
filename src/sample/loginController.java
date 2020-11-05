@@ -128,15 +128,15 @@ public class loginController implements Initializable {
                     sql = "SELECT * FROM students,marks WHERE students.rollnumber='"+id+"' AND students.password='"+pwd+"' AND students.category='"+category+"' AND students.rollnumber=marks.rollnumber";
                     rs = stmt.executeQuery(sql);
 
-//                    studentController.tstudentName =  rs.getString("studentName").substring(0,1).toUpperCase()+rs.getString("studentName").substring(1);
-//                    studentController.tstudentRoll =  sid;
-//                    studentController.tstudentSex =  rs.getString("sex").substring(0,1).toUpperCase()+rs.getString("sex").substring(1);
-//                    studentController.tstudentCategory =  rs.getString("category").substring(0,1).toUpperCase()+rs.getString("category").substring(1);
-//                    studentController.tstudentFName =  rs.getString("fName").substring(0,1).toUpperCase()+rs.getString("fName").substring(1);
-//                    studentController.tstudentMName =  rs.getString("mName").substring(0,1).toUpperCase()+rs.getString("mName").substring(1);
-//                    studentController.tstudentmM =  rs.getInt("maths");
-//                    studentController.tstudentpM =  rs.getInt("physics");
-//                    studentController.tstudentcM =  rs.getInt("chemistry");
+                    studentController.tstudentName =  rs.getString("studentName").substring(0,1).toUpperCase()+rs.getString("studentName").substring(1);
+                    studentController.tstudentRoll =  sid;
+                    studentController.tstudentSex =  rs.getString("sex").substring(0,1).toUpperCase()+rs.getString("sex").substring(1);
+                    studentController.tstudentCategory =  rs.getString("category").substring(0,1).toUpperCase()+rs.getString("category").substring(1);
+                    studentController.tstudentFName =  rs.getString("fName").substring(0,1).toUpperCase()+rs.getString("fName").substring(1);
+                    studentController.tstudentMName =  rs.getString("mName").substring(0,1).toUpperCase()+rs.getString("mName").substring(1);
+                    studentController.tstudentmM =  rs.getInt("maths");
+                    studentController.tstudentpM =  rs.getInt("physics");
+                    studentController.tstudentcM =  rs.getInt("chemistry");
 
                     //closing current stage
                     Stage stage = (Stage) loginBTN.getScene().getWindow();
@@ -237,18 +237,18 @@ public class loginController implements Initializable {
         stage.close();
 
         //making another stage
-        Stage meritListStage = new Stage();
+        Stage rankListStage = new Stage();
 
 
         Parent admin = FXMLLoader.load(getClass().getResource("rankList.fxml"));
 
         Scene scene = new Scene(admin, Main.height , Main.width);
 
-        meritListStage.setTitle("Rank List");
+        rankListStage.setTitle("Rank List");
+        
 
-
-        meritListStage.setScene(scene);
-        meritListStage.show();
+        rankListStage.setScene(scene);
+        rankListStage.show();
 
     }
 }

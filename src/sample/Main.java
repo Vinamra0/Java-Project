@@ -24,9 +24,9 @@ public class Main extends Application {
 
         Parent login = FXMLLoader.load(getClass().getResource("login.fxml"));
 
-        Scene scene = new Scene(login, this.height, this.width);
+        Scene scene = new Scene(login, height, width);
 
-        primaryStage.setTitle("JEE Management System");
+        primaryStage.setTitle("Student Management System");
 
 
 
@@ -36,8 +36,8 @@ public class Main extends Application {
         Rectangle2D screenBounds = Screen.getPrimary().getBounds(); //  getting displayInfo
 
         //  setting position of window at center
-        primaryStage.setX((screenBounds.getMaxX()-this.height)/2);
-        primaryStage.setY((screenBounds.getMaxY()-this.width)/2);
+        primaryStage.setX((screenBounds.getMaxX()-height)/2);
+        primaryStage.setY((screenBounds.getMaxY()-width)/2);
 
 
         primaryStage.show();
